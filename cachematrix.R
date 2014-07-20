@@ -55,3 +55,14 @@ memoize <- function(f) {
 
 # Let's create a memoizing version of the solve() function
 memoizingSolve <- memoize(solve)
+
+# Example:
+# > m <- matrix(rnorm(1000000), nrow=1000)
+# > system.time(str(memoizingSolve(m)))
+#  num [1:1000, 1:1000] -0.01536 0.00194 0.00768 0.05821 0.03947 ...
+#    user  system elapsed 
+#   2.117   0.013   2.118 
+# > system.time(str(memoizingSolve(m)))
+#  num [1:1000, 1:1000] -0.01536 0.00194 0.00768 0.05821 0.03947 ...
+#    user  system elapsed 
+#   0.050   0.006   0.071 
